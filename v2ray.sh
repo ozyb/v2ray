@@ -19,6 +19,7 @@ rand(){
 serverip=$(curl ipv4.icanhazip.com)
 cd /etc/v2ray
 rm -f /etc/v2ray/config.json
+rm -f /etc/v2ray/meConfig.json
 
 cat > /etc/v2ray/config.json<<-EOF
 {
@@ -109,7 +110,7 @@ sed -i "s/11234/$port/" config.json
 systemctl restart v2ray.service
 
 #输出配置到文件
-cat > /etc/v2ray/me_config.json<<-EOF
+cat > /etc/v2ray/meConfig.json<<-EOF
 {
 ===========KCP配置=============
 地址：${serverip}
